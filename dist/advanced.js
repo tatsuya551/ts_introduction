@@ -1,6 +1,6 @@
 "use strict";
 var _a, _b, _c;
-var aruru = {
+const aruru = {
     name: "Aruru",
     role: "front-end",
     follower: 4000,
@@ -26,29 +26,27 @@ function describeProfile(nomadworker) {
     }
 }
 // クラスを使った場合(instanceof)
-var Dog = /** @class */ (function () {
-    function Dog() {
+class Dog {
+    constructor() {
         // タグの設置
         this.kind = "dog";
     }
-    Dog.prototype.speak = function () {
+    speak() {
         console.log("Bow-wow");
-    };
-    return Dog;
-}());
-var Bird = /** @class */ (function () {
-    function Bird() {
+    }
+}
+class Bird {
+    constructor() {
         // タグの設置
         this.kind = "bird";
     }
-    Bird.prototype.speak = function () {
+    speak() {
         console.log("Tweet-tweet");
-    };
-    Bird.prototype.fly = function () {
+    }
+    fly() {
         console.log("Flutter");
-    };
-    return Bird;
-}());
+    }
+}
 function havePet(pet) {
     pet.speak();
     if (pet instanceof Bird) {
@@ -73,40 +71,40 @@ havePet(new Dog());
 /////////////////////////
 //// constアサーション ////
 /////////////////////////
-var array = [10, 20]; // array: number[]
-var array2 = [10, 20]; // array2: readonly [10, 20]
+let array = [10, 20]; // array: number[]
+let array2 = [10, 20]; // array2: readonly [10, 20]
 // name: string・age: number
-var peter = {
+const peter = {
     name: "Peter",
     age: 20
 };
 // readonly name: "Peter"・readonly age: 20
-var peter2 = {
+const peter2 = {
     name: "Peter",
     age: 20
 };
-var downloadedData = {
+const downloadedData = {
     id: 1
 };
 // downloadedData.userの値がない時はundefined
-var optionalChaining = (_b = (_a = downloadedData.user) === null || _a === void 0 ? void 0 : _a.name) === null || _b === void 0 ? void 0 : _b.first;
+const optionalChaining = (_b = (_a = downloadedData.user) === null || _a === void 0 ? void 0 : _a.name) === null || _b === void 0 ? void 0 : _b.first;
 // downloadedData.userの値が空文字・0でも"no-user"が返される
-var nullishCoalescing = (_c = downloadedData.user) !== null && _c !== void 0 ? _c : "no-user";
+const nullishCoalescing = (_c = downloadedData.user) !== null && _c !== void 0 ? _c : "no-user";
 function toLowerCase(x) {
     if (typeof x === "string") {
         return x.toLowerCase();
     }
     return x;
 }
-var lowerHello = toLowerCase("HELLO");
-var lowerHello2 = toLowerCase(33);
-var tmpFunc = function (x) { return 0; };
-var intersectionFunc;
+const lowerHello = toLowerCase("HELLO");
+const lowerHello2 = toLowerCase(33);
+const tmpFunc = function (x) { return 0; };
+let intersectionFunc;
 intersectionFunc = function (a, b) { return 0; };
-var unionFunc;
+let unionFunc;
 // UnionFuncAを定義して呼び出す
 unionFunc = function (num) { return num; };
 console.log(unionFunc(2000));
 // UnionFuncBを定義して呼び出す
-unionFunc = function (str) { return "Hi " + str; };
+unionFunc = function (str) { return `Hi ${str}`; };
 console.log(unionFunc("UnionFuncB"));
